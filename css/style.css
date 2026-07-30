@@ -1,0 +1,336 @@
+/* ==========================================================================
+   НАШ САМЫЙ ПЕРВЫЙ, ОРИГИНАЛЬНЫЙ И ЧИСТЫЙ КОД СТИЛЕЙ САЙТА «ЛЕГЕНДА»
+   ========================================================================== */
+
+:root {
+  --bg-main: #111215;
+  --bg-card: #1b1c21;
+  --bg-input: #23242a;
+  --text-primary: #ffffff;
+  --text-muted: #a0a5b5;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --accent-green: #00cc66;
+  --max-width: 1200px;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Сброс базовых стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Главный контейнер */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Шапка сайта и адаптивное меню */
+.header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent-green);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+/* Защита шапки от излома на смартфонах */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  .nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-list {
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding-bottom: 5px;
+    width: max-content;
+  }
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-green);
+}
+
+/* Главные кнопки вызова (Позвонить) */
+.btn-cta {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #00994c 100%);
+  color: #111215;
+  border: none;
+  padding: 16px 32px;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, filter 0.2s ease !important;
+}
+
+.btn-cta:hover {
+  filter: brightness(1.1) !important;
+}
+
+.btn-cta:active {
+  transform: scale(0.97) !important;
+}
+
+/* Секции и сетка карточек */
+.section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 50px 0; }
+  .section-title { font-size: 24px; margin-bottom: 30px; }
+  .grid-3 { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 35px;
+  border-radius: 6px;
+}
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Главный экраны (Hero-блоки) */
+.hero {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border-color);
+  background: radial-gradient(circle at top right, rgba(0, 204, 102, 0.03) 0%, transparent 60%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 46px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 35px;
+  max-width: 500px;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 60px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-title { font-size: 28px; }
+}
+
+/* Подвал сайта (Footer) */
+.footer {
+  background-color: var(--bg-card);
+  padding: 60px 0 30px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.51fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.footer-title {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-green);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+/* Стилизация виджетов карт на странице контактов */
+.widget-container {
+  width: 100%;
+  height: 450px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+/* ==========================================================================
+   ВОЗВРАЩАЕМ НАШИ КРУТЫЕ ФИШКИ: СТАТЬИ, СЕТКУ ИЗ 12 ФОТО И ВИДЖЕТЫ
+   ========================================================================== */
+
+/* Стили для экспертных статей (Страница FAQ) */
+.faq-container { max-width: 800px; margin: 0 auto; margin-top: 40px; }
+.faq-item { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 30px; margin-bottom: 20px; }
+.faq-question { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.faq-answer { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+/* Стили для 3 контейнеров виджетов и портала Ростова (Страница доверия) */
+.widget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+.widget-trust-box { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; min-height: 200px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.widget-trust-box h3 { font-size: 13px; text-transform: uppercase; color: var(--accent-green); letter-spacing: 1px; margin-bottom: 10px; }
+.portal-link { display: inline-block; margin-top: 12px; padding: 10px 18px; background-color: var(--accent-green); color: #111215; text-decoration: none; font-weight: 700; font-size: 13px; border-radius: 4px; text-transform: uppercase; }
+
+/* Сетка для 12 фотографий объектов с автоподгонкой картинок без потери качества */
+.objects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 50px; }
+.object-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; }
+.object-img-wrapper { width: 100%; height: 280px; background-color: #111; overflow: hidden; }
+.object-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.object-content { padding: 25px; }
+.object-meta { font-size: 13px; color: var(--accent-green); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+.object-title { font-size: 18px; font-weight: 800; margin-bottom: 10px; color: #fff; }
+.object-text { color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+
+/* Блок реального отзыва внутри карточки объекта */
+.object-review { border-top: 1px solid var(--border-color); padding-top: 15px; margin-top: 15px; font-style: italic; font-size: 13px; color: #fff; position: relative; }
+.object-review::before { content: "“"; font-size: 40px; color: var(--accent-green); position: absolute; top: -10px; left: -5px; opacity: 0.2; }
+.review-author { display: block; font-style: normal; font-weight: 700; font-size: 12px; color: var(--text-muted); margin-top: 5px; }
+
+/* Адаптивность для карточек и виджетов на телефонах */
+@media (max-width: 992px) { 
+  .widget-grid, .objects-grid { grid-template-columns: 1fr; } 
+}
